@@ -1,5 +1,6 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {ImageBackground, Text, View, StyleSheet } from 'react-native';
+import Forecast from './Forecast';
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({

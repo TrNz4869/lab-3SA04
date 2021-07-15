@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Weather from './components/Weather';
 
+
 export default function App() {
   const doIt = () => {
     console.log("Hello from console")
