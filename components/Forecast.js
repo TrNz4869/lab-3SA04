@@ -26,17 +26,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         paddingBottom: 30,
     },
-
     temp:{
         flexDirection: 'row',
         justifyContent: 'center',
         paddingBottom: 30,
     },
-
     temp_text:{
         fontSize: 30,
     },
-
     cel_text:{
         textAlignVertical: 'center'
     },
