@@ -5,14 +5,14 @@ import Forecast from './Forecast';
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: 'main',
-        description: 'desdescription',
+        description: 'description',
         temp: 0
     })
     return (
         <View>
             <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
                 <View style={styles.box}>
-                    <Text>Zip Code is {props.zipCode}</Text>
+                    <Text style={styles.zip_code_text}>Zip Code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo} />
                 </View>
             </ImageBackground>
@@ -26,13 +26,16 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%'
     },
+    
     box:{
         flexDirection:'column',
-        justifyContent:'center',
         alignItems:'center',
         backgroundColor: 'rgba(52, 52, 52, 0.5)',
         width: '100%',
-        height: '30%'
+    },
+
+    zip_code_text:{
+        padding: 20,
     },
 
 });
