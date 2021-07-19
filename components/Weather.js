@@ -10,9 +10,19 @@ export default function Weather(props) {
                 .then((response) => response.json())
                 .then((json) => {
                     setForecastInfo({
+                        name: json.name,
                         main: json.weather[0].main,
                         description: json.weather[0].description,
-                        temp: json.main.temp
+                        temp: json.main.temp,
+                        feels_like: json.main.feels_like,
+                        country: json.sys.country,
+                        icon: json.weather[0].icon,
+                        wind_speed: json.wind.speed,
+                        wind_deg: json.wind.deg,
+                        humidity: json.main.humidity,
+                        temp_min: json.main.temp_min,
+                        temp_max: json.main.temp_max,
+                        visibility: json.main.pressure,
                     });
                 })
                 .catch((error) => {
@@ -24,7 +34,9 @@ export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: 'main',
         description: 'description',
-        temp: 0
+        temp: 0,
+        feels_like: 0,
+        visibility: 0,
     })
     return (
         <View>
@@ -48,12 +60,13 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: 'rgba(52, 52, 52, 0.5)',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
         width: '100%',
+        height: '100%',
     },
 
     zip_code_text: {
-        padding: 20,
+        paddingTop: 20,
     },
 
 });

@@ -12,10 +12,9 @@ const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Nakhon Ratchasima', code: '30000' },
-    { place: 'Prachuap Khiri Khan', code: '77000' },
+    { place: 'Phayao', code: '56000' },
     { place: 'Samut Prakan', code: '10270' },
     { place: 'Trang', code: '92000' },
-    { place: 'Uthai Thani', code: '61000' },
     { place: 'Yala', code: '95000' },
 ]
 const ZipItem = ({ place, code, navigation}) => (
