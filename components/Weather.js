@@ -22,7 +22,7 @@ export default function Weather(props) {
                         humidity: json.main.humidity,
                         temp_min: json.main.temp_min,
                         temp_max: json.main.temp_max,
-                        visibility: json.main.pressure,
+                        pressure: json.main.pressure,
                     });
                 })
                 .catch((error) => {
