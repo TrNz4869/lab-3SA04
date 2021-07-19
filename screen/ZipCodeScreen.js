@@ -4,12 +4,19 @@ import { StatusBar } from 'expo-status-bar';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
+
 const availableZipItems = [
-    { place: 'Hatyai', code: '90110' },
-    { place: 'Trang', code: '92000' },
+    { place: 'Bangkok', code: '10110' },
     { place: 'Chiangmai', code: '50000' },
-    { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
+    { place: 'Hatyai', code: '90110' },
+    { place: 'Khonkaen', code: '40000' },
+    { place: 'Nakhon Ratchasima', code: '30000' },
+    { place: 'Prachuap Khiri Khan', code: '77000' },
+    { place: 'Samut Prakan', code: '10270' },
+    { place: 'Trang', code: '92000' },
+    { place: 'Uthai Thani', code: '61000' },
+    { place: 'Yala', code: '95000' },
 ]
 const ZipItem = ({ place, code, navigation}) => (
     <TouchableHighlight onPress={() =>{
@@ -27,6 +34,14 @@ const _keyExtractor = item => item.code
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
+        <>
+        <View style={styles.chooseHeader}>
+            <Text style={styles.chooseText}>Choose a city and zip code</Text>
+        </View>
+        <View style={styles.header}>
+            <Text style={styles.headerText}>City</Text>
+            <Text style={styles.headerText}>Zip code</Text>
+        </View>
         <View>
             <FlatList
                 data={availableZipItems}
@@ -35,6 +50,8 @@ export default function ZipCodeScreen() {
             />
             <StatusBar style="auto" />
         </View>
+        
+        </>
     );
 }
 
@@ -42,7 +59,8 @@ const styles = StyleSheet.create({
     ZipItem: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        padding: 15,
     },
 
     zipPlace: {
@@ -51,7 +69,31 @@ const styles = StyleSheet.create({
 
     zipCode: {
         flex: 1,
-    }
+    },
+    
+    header: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        padding: 10,
+        backgroundColor: 'white'
+    },
 
+    headerText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    }, 
+
+    chooseHeader: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        padding: 10,
+        backgroundColor: 'white'
+    },
+    
+    chooseText: {
+        alignItems: 'center',
+        fontSize: 19,
+        fontWeight: 'bold',
+    }
 })
 
