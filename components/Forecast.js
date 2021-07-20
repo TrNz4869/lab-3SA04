@@ -16,14 +16,16 @@ export default function Forecast(props) {
                 <Image style={{ width: 64, height: 64 }} source={{ uri: iconurl }} />
                 <Text style={styles.descriptionText}>{props.description}</Text>
             </View>
-            <View style={styles.section}></View>
             <View style={styles.details}>
-                <Text >Wind Speed {props.wind_speed} meter/sec</Text>
-                <Text >Wind direction {props.wind_deg}°</Text>
-                <Text >humidity {props.humidity}%</Text>
-                <Text >temp_min {props.temp_min}°C</Text>
-                <Text >temp_max {props.temp_max}°C</Text>
-                <Text >pressure {props.pressure} hPa</Text>
+                <Text style={styles.headerText}>Wind</Text>
+                <Text style={styles.detailText}>Wind Speed {props.wind_speed} meter/sec</Text>
+                <Text style={styles.detailText}>Wind Direction {props.wind_deg}°</Text>
+                <Text style={styles.headerText}>Humidity & Pressure</Text>
+                <Text style={styles.detailText}>Humidity {props.humidity}%</Text>
+                <Text style={styles.detailText}>Pressure {props.pressure} hPa</Text>
+                <Text style={styles.headerText}>Lowest & Highest Temperature</Text>
+                <Text style={styles.detailText}>Lowest Temperature {props.temp_min}°C</Text>
+                <Text style={styles.detailText}>Highest Temperature {props.temp_max}°C</Text>
             </View>
         </View >
     );
@@ -62,12 +64,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
-    section: {
-        borderBottomColor: 'black',
-        borderBottomWidth: 1,
+    details:{        
+        alignItems: 'center',
+    },
+    
+    detailText:{        
+        color: 'white',
     },
 
-    details:{        
-
-},
+    headerText: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: 'bold',
+        paddingBottom: 12,
+        paddingTop: 12,
+    },
 });
