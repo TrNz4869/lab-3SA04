@@ -32,15 +32,38 @@ export default function Weather(props) {
     }, [props.zipCode])
     
     const [forecastInfo, setForecastInfo] = useState({
-        main: 'main',
-        description: 'description',
+        name: 'N/A',
+        country: 'N/A',
+        main: 'N/A',
+        description: 'N/A',
         temp: 0,
         feels_like: 0,
-        visibility: 0,
-    })
+        icon: 'N/A',
+        wind_speed: 0,
+        wind_deg: 0,
+        humidity: 0,
+        temp_min: 0,
+        temp_max: 0,
+        pressure: 0,
+    });
+
+    let backgroundImg
+    if (forecastInfo.main === 'Clear') {
+        backgroundImg = require('../images/backgrounds/clear.jpg')
+    }
+    else if (forecastInfo.main === 'Clouds') {
+        backgroundImg = require('../images/backgrounds/clouds.jpg')
+    }
+    else if (forecastInfo.main === 'Rain') {
+        backgroundImg = require('../images/backgrounds/rain.jpg')
+    }
+    else if (forecastInfo.main === 'Thunderstorm') {
+        backgroundImg = require('../images/backgrounds/thunderstorm.jpg')
+    }
+    
     return (
         <View>
-            <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
+            <ImageBackground source={backgroundImg} style={styles.backdrop}>
                 <View style={styles.box}>
                     <Text style={styles.zip_code_text}>Zip Code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo} />
@@ -68,5 +91,6 @@ const styles = StyleSheet.create({
     zip_code_text: {
         paddingTop: 20,
     },
+
 
 });
