@@ -34,16 +34,15 @@ export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
         <>
-
-                    <View style={styles.chooseHeader}>
-                        <Text style={styles.chooseText}>Choose a city and zip code</Text>
-                    </View>
-                    <View style={styles.header}>
-                        <Text style={styles.headerText}>City</Text>
-                        <Text style={styles.headerText}>Zip code</Text>
-                    </View>
-                    <ImageBackground source={(require('../images/backgrounds/bg.jpg'))} style={styles.backdrop}>
-                    <View style={styles.box}>
+            <View style={styles.chooseHeader}>
+                <Text style={styles.chooseText}>Choose a city and zip code</Text>
+            </View>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>City</Text>
+                <Text style={styles.headerText}>Zip code</Text>
+            </View>
+            <ImageBackground source={(require('../images/backgrounds/bg.jpg'))} style={styles.backdrop}>
+                <View style={styles.box}>
                     <View>
                         <FlatList
                             data={availableZipItems}
@@ -52,8 +51,8 @@ export default function ZipCodeScreen() {
                         />
                         <StatusBar style="auto" />
                     </View>
-                    </View>
-                    </ImageBackground>
+                </View>
+            </ImageBackground>
 
         </>
     );
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
         height: '100%'
     },
 
-    
+
     ZipItem: {
         flex: 1,
         flexDirection: 'row',
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
         fontSize: 19,
         fontWeight: 'bold',
     },
-    
+
     box: {
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
         width: '100%',

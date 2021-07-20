@@ -1,10 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
 
 export default function Forecast(props) {
-    console.log(props.icon)
-    let icon = props.icon
     const iconurl = 'http://openweathermap.org/img/wn/' + props.icon + '@4x.png'
     return (
         <View >
