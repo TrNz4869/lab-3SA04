@@ -44,17 +44,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         flexDirection: 'column',
+        color: 'white',
         fontSize: 30,
         paddingBottom: 15,
     },
 
     descriptionText: {
         fontSize: 20,
+        color: 'white',
         textAlign: 'center',
     },
     
     tempText: {
         alignItems: 'center',
+        color: 'white',
         fontSize: 50,
         fontWeight: 'bold',
     },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, FlatList, View, Text, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
@@ -17,9 +17,9 @@ const availableZipItems = [
     { place: 'Trang', code: '92000' },
     { place: 'Yala', code: '95000' },
 ]
-const ZipItem = ({ place, code, navigation}) => (
-    <TouchableHighlight onPress={() =>{
-        navigation.navigate('Weather', {zipCode: code})
+const ZipItem = ({ place, code, navigation }) => (
+    <TouchableHighlight onPress={() => {
+        navigation.navigate('Weather', { zipCode: code })
     }}>
         <View style={styles.ZipItem}>
             <Text>{place}</Text>
@@ -34,27 +34,38 @@ export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
         <>
-        <View style={styles.chooseHeader}>
-            <Text style={styles.chooseText}>Choose a city and zip code</Text>
-        </View>
-        <View style={styles.header}>
-            <Text style={styles.headerText}>City</Text>
-            <Text style={styles.headerText}>Zip code</Text>
-        </View>
-        <View>
-            <FlatList
-                data={availableZipItems}
-                keyExtractor={_keyExtractor}
-                renderItem={({ item }) => <ZipItem {...item} navigation={navigation}/>}
-            />
-            <StatusBar style="auto" />
-        </View>
-        
+
+                    <View style={styles.chooseHeader}>
+                        <Text style={styles.chooseText}>Choose a city and zip code</Text>
+                    </View>
+                    <View style={styles.header}>
+                        <Text style={styles.headerText}>City</Text>
+                        <Text style={styles.headerText}>Zip code</Text>
+                    </View>
+                    <ImageBackground source={(require('../images/backgrounds/bg.jpg'))} style={styles.backdrop}>
+                    <View style={styles.box}>
+                    <View>
+                        <FlatList
+                            data={availableZipItems}
+                            keyExtractor={_keyExtractor}
+                            renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+                        />
+                        <StatusBar style="auto" />
+                    </View>
+                    </View>
+                    </ImageBackground>
+
         </>
     );
 }
 
 const styles = StyleSheet.create({
+    backdrop: {
+        width: '100%',
+        height: '100%'
+    },
+
+    
     ZipItem: {
         flex: 1,
         flexDirection: 'row',
@@ -69,7 +80,7 @@ const styles = StyleSheet.create({
     zipCode: {
         flex: 1,
     },
-    
+
     header: {
         justifyContent: 'space-between',
         flexDirection: 'row',
@@ -80,7 +91,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 16,
         fontWeight: 'bold',
-    }, 
+    },
 
     chooseHeader: {
         justifyContent: 'center',
@@ -88,11 +99,17 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white'
     },
-    
+
     chooseText: {
         alignItems: 'center',
         fontSize: 19,
         fontWeight: 'bold',
-    }
+    },
+    
+    box: {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        width: '100%',
+        height: '100%',
+    },
 })
 

@@ -83,13 +83,14 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         width: '100%',
         height: '100%',
     },
 
     zip_code_text: {
         paddingTop: 20,
+        color: 'white',
     },
 
 
